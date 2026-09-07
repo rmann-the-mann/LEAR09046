@@ -89,7 +89,7 @@ fetch('content.html').then(r => {
 }).catch(err => portfolio.innerHTML=`<p class="loading">${err.message} Serve this folder from a local web server; see README.md.</p>`);
 
 function buildNav(){
-  const items=[['introduction','About'],['evidence-map','Map & timeline'],['outcomes','Learning outcomes'],['conclusion','Conclusion'],['references','References'],['evidence','Evidence collection']];
+  const items=[['introduction','Introduction'],['evidence-map','Map & timeline'],['outcomes','Learning outcomes'],['conclusion','Conclusion'],['references','References'],['evidence','Evidence collection']];
   const nav=document.querySelector('#sectionNav');nav.innerHTML=items.map(([id,label])=>`<a href="#${id}">${label}</a>`).join('');
   const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){nav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.hash===`#${e.target.id}`))}}),{rootMargin:'-20% 0px -70%'});
   items.forEach(([id])=>observer.observe(document.getElementById(id)));
