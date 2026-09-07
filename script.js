@@ -61,11 +61,20 @@ fetch('content.html').then(r => {
   const conclusionText = document.createElement('div'); conclusionText.className='intro-block';
   appendRange(conclusionText, conclusionI + 1, refsI); conclusion.append(conclusionText);
 
-  const references = makeSection('references', 'Scholarship informing practice', 'References');
-  references.classList.add('references-list'); appendRange(references, refsI + 1, appendixI);
-  references.querySelectorAll('p').forEach(p => p.innerHTML = p.innerHTML.replace(/(https?:\/\/[^<\s]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>'));
+  const references = makeSection(
+  'references',
+  'Scholarship informing practice',
+  'References'
+);
 
-  const evidence = makeSection('evidence', 'Appendix', 'Evidence collection');
+references.classList.add('references-list');
+appendRange(references, refsI + 1, appendixI);
+
+const evidence = makeSection(
+  'evidence',
+  'Appendix',
+  'Evidence collection'
+);
   const evidenceGrid = document.createElement('div'); evidenceGrid.className='evidence-grid'; evidence.append(evidenceGrid);
   let cursor = firstEvidenceI;
   while (cursor < nodes.length) {
